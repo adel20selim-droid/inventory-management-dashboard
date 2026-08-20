@@ -13,10 +13,3 @@ export interface InventoryItem {
   notes: string
   locked: boolean
 }
-
-export interface BranchInfo {
-  id: Branch
-  name: string
-  itemCount: number
-  icon: string
-}

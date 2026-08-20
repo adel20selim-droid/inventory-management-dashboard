@@ -16,10 +16,11 @@ const ODOO_CONFIG = {
   email: 'asabry@ataad.sa',
   apiKey: '783d7e44404094fb2f6efc9908a9e4824f6d0faa',
   db: 'naqlahtech-ataad-main-9212628',
+  // أسماء المستودعات الصحيحة من Odoo
   warehouses: {
-    'rabie': ['Al-Rabie', 'Rabie', 'Rabei'],
+    'rabie': ['Raber', 'Rabei', 'Al-Rabie'],
     'zad': ['Zid', 'Zad'],
-    'kharj': ['Al-Kharj', 'Kharj', 'KHA']
+    'kharj': ['KHA', 'Al-Kharj', 'Kharj']
   }
 }
 
@@ -400,7 +401,7 @@ app.post('/api/send-management-email', async (req, res) => {
     const mailId = await callOdooObject(uid, 'mail.mail', 'create', [{
       subject,
       body_html: bodyHtml,
-      email_to: 'asabry@ataad.sa, adel20selim@gmail.com',
+      email_to: 'asabry@ataad.sa',
       email_from: 'asabry@ataad.sa',
       auto_delete: false
     }])
@@ -430,6 +431,7 @@ const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 منظومة الجرد - عتاد القهوة V2.1`)
   console.log(`📡 تشغيل على http://0.0.0.0:${PORT}`)
   console.log(`🔗 Odoo: ${ODOO_CONFIG.url}`)
+  console.log(`✅ الفروع: Raber, KHA, Zid`)
 })
 
 export default app
